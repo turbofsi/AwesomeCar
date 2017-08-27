@@ -10,6 +10,7 @@ namespace MVCDemo.DataAccess.Repositories
     {
         IEnumerable<AwesomeCar> GetAwesomeCars();
         void Add(AwesomeCar car);
+        AwesomeCar GetAwesomeCarById(int id);
     }
     public class AwesomeCarQueryHandler : IAwesomeCarQueryHandler
     {
@@ -33,9 +34,14 @@ namespace MVCDemo.DataAccess.Repositories
             _cars.Add(car);
         }
 
+        public AwesomeCar GetAwesomeCarById(int id)
+        {
+            throw new NotImplementedException();
+        }
+
         public IEnumerable<AwesomeCar> GetAwesomeCars()
         {
-            return _cars;
+            throw new NotImplementedException();
         }
     }
 }

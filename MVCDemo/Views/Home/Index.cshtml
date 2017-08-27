@@ -13,6 +13,7 @@
                 <td><p>@car.CarName</p></td>
                 <td><p>@car.BrandName</p></td>
                 <td><p>@car.MileAge</p></td>
+                <td><p>@Html.ActionLink("detail", "Detail", "Home", new { Id = car.CarId })</p></td>
             </tr>
         }
     </table>

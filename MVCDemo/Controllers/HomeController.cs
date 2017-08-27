@@ -33,6 +33,18 @@ namespace MVCDemo.Controllers
             return View();
         }
 
+        [HttpGet]
+        public IActionResult Detail(int Id)
+        {
+            var carModel = _awesomeCarQueryHandler.GetAwesomeCarById(Id);
+            var detailCarViewModel = new DetailCarViewModel
+            {
+                CarName = carModel.CarName,
+                Miliage = carModel.MileAge
+            };
+            return View(detailCarViewModel);
+        }
+
         [HttpPost]
         public IActionResult CreateCar(CarViewModel carViewModel)
         {
