@@ -1,0 +1,30 @@
+﻿@using MVCDemo.DataAccess.Models
+@model CarViewModel
+<div>
+    <h1>Create New Car</h1>
+
+    <div>
+        @using (Html.BeginForm())
+        {
+            <div>
+                @Html.LabelFor(m => m.CarName)
+                @Html.TextBoxFor(m => m.CarName)
+            </div>
+            <div>
+                @Html.LabelFor(m => m.BrandName)
+                @Html.TextBoxFor(m => m.BrandName)
+            </div>
+            <div>
+                @Html.LabelFor(m => m.MileAge)
+                @Html.TextBoxFor(m => m.MileAge)
+            </div>
+            <div>
+                @Html.LabelFor(m => m.producerCountry)
+                @Html.DropDownListFor(m => m.producerCountry, Html.GetEnumSelectList(typeof(ProducerCountry)))
+            </div>
+            <div>
+                <input type="submit" value="Save" />
+            </div>
+        }
+    </div>
+</div>

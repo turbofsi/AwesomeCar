@@ -1,0 +1,9 @@
+D:\Work\MVCDemo\MVCDemo\bin\Debug\netcoreapp1.1\MVCDemo.deps.json
+D:\Work\MVCDemo\MVCDemo\bin\Debug\netcoreapp1.1\MVCDemo.runtimeconfig.json
+D:\Work\MVCDemo\MVCDemo\bin\Debug\netcoreapp1.1\MVCDemo.runtimeconfig.dev.json
+D:\Work\MVCDemo\MVCDemo\bin\Debug\netcoreapp1.1\MVCDemo.dll
+D:\Work\MVCDemo\MVCDemo\bin\Debug\netcoreapp1.1\MVCDemo.pdb
+D:\Work\MVCDemo\MVCDemo\obj\Debug\netcoreapp1.1\MVCDemo.csprojResolveAssemblyReference.cache
+D:\Work\MVCDemo\MVCDemo\obj\Debug\netcoreapp1.1\MVCDemo.AssemblyInfo.cs
+D:\Work\MVCDemo\MVCDemo\obj\Debug\netcoreapp1.1\MVCDemo.dll
+D:\Work\MVCDemo\MVCDemo\obj\Debug\netcoreapp1.1\MVCDemo.pdb
