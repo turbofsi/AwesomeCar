@@ -25,5 +25,10 @@ namespace MVCDemo.DataAccess.Repositories
         {
             return _context.AwesomeCars;
         }
+
+        public AwesomeCar GetAwesomeCarById(int id)
+        {
+            return _context.AwesomeCars.FirstOrDefault(c => c.CarId == id);
+        }
     }
 }
