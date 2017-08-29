@@ -1,22 +1,27 @@
-﻿ @model MVCDemo.DataAccess.Models.HomeViewModel
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <title>Home Page</title>
-</head>
-<body>
-    <h1>Home Page</h1>
-    <h2>Yang Tech Hello World!</h2>
-    <table>
-        @foreach (var car in Model.Cars)
-        {
-            <tr>
-                <td><p>@car.CarName</p></td>
-                <td><p>@car.BrandName</p></td>
-                <td><p>@car.MileAge</p></td>
-                <td><p>@Html.ActionLink("detail", "Detail", "Home", new { Id = car.CarId })</p></td>
-            </tr>
-        }
-    </table>
-    @Html.ActionLink("Create New Car","CreateCar", "Home")
-</body>
-</html>
+﻿@model MVCDemo.DataAccess.Models.HomeViewModel
+
+@{ 
+    ViewBag.Title = "Home Page";
+}
+
+<h1>Garage</h1>
+<table>
+    @foreach (var car in Model.Cars)
+    {
+        <tr>
+            <td><p>@car.CarName</p></td>
+            <td><p>@car.BrandName</p></td>
+            <td><p>@car.MileAge</p></td>
+            <td><p>@Html.ActionLink("detail", "Detail", "Home", new { Id = car.CarId })</p></td>
+        </tr>
+    }
+</table>
+@Html.ActionLink("Create New Car", "CreateCar", "Home")
+
+@section footer {
+    <div>
+        <span>
+            Home Page
+        </span>
+    </div>
+}
