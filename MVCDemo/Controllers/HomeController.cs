@@ -11,10 +11,12 @@ namespace MVCDemo.Controllers
     public class HomeController : Controller
     {
         private IAwesomeCarQueryHandler _awesomeCarQueryHandler;
+        private IAwesomeCarRepository _awesomeCarRepository;
 
-        public HomeController(IAwesomeCarQueryHandler awesomeCarQueryHandler)
+        public HomeController(IAwesomeCarQueryHandler awesomeCarQueryHandler, IAwesomeCarRepository awesomeCarRepository)
         {
             _awesomeCarQueryHandler = awesomeCarQueryHandler;            
+            _awesomeCarRepository = awesomeCarRepository;            
         }
         public IActionResult Index()
         {
@@ -44,6 +46,32 @@ namespace MVCDemo.Controllers
             };
             return View(detailCarViewModel);
         }
+
+        [HttpGet]
+        public IActionResult Edit(int Id)
+        {
+            var carModel = _awesomeCarQueryHandler.GetAwesomeCarById(Id);
+            var editCarViewModel = new DetailCarViewModel
+            {
+                CarName = carModel.CarName,
+                Miliage = carModel.MileAge,
+                ProducerCountry = carModel.producerCountry
+            };
+            return View(editCarViewModel);
+        }
+
+
+        [HttpPost]
+        public IActionResult Edit(int id, DetailCarViewModel vm)
+        {
+            var carModel = _awesomeCarRepository.GetCarById(id);
+            carModel.CarName = vm.CarName;
+            carModel.MileAge = vm.Miliage;
+            carModel.producerCountry = vm.ProducerCountry;
+            _awesomeCarRepository.Commit();
+            return RedirectToAction("Detail", new { id = id });
+        }
+
 
         [HttpPost]
         public IActionResult CreateCar(CarViewModel carViewModel)

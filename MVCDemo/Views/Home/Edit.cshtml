@@ -1,0 +1,29 @@
+﻿@using MVCDemo.DataAccess.Models
+@model DetailCarViewModel
+@{ 
+    ViewBag.Title = "Edit Car";
+}
+<div>
+    <h1>Edit: @Model.CarName</h1>
+
+    <div>
+        @using (Html.BeginForm())
+        {
+            <div>
+                @Html.LabelFor(m => m.CarName)
+                @Html.TextBoxFor(m => m.CarName)
+            </div>
+            <div>
+                @Html.LabelFor(m => m.Miliage)
+                @Html.TextBoxFor(m => m.Miliage)
+            </div>
+            <div>
+                @Html.LabelFor(m => m.ProducerCountry)
+                @Html.DropDownListFor(m => m.ProducerCountry, Html.GetEnumSelectList(typeof(ProducerCountry)))
+            </div>
+            <div>
+                <input type="submit" value="Save" />
+            </div>
+        }
+    </div>
+</div>

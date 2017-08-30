@@ -9,5 +9,6 @@ namespace MVCDemo.DataAccess.Models
     {
         public string CarName { get; set; }
         public int Miliage { get; set; }
+        public ProducerCountry ProducerCountry { get; set; }
     }
 }

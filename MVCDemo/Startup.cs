@@ -32,6 +32,7 @@ namespace MVCDemo
             // Add framework services.
             services.AddMvc();
             services.AddSingleton<IAwesomeCarQueryHandler, SqlAwesomeCarQUeryHandler>();
+            services.AddSingleton<IAwesomeCarRepository, AwesomeCarRepository>();
             services.AddDbContext<AwesomeCarDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("yangtech")));
         }
 
