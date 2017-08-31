@@ -1,7 +1,10 @@
-﻿@model MVCDemo.DataAccess.Models.DetailCarViewModel
-@{ 
+﻿@model DetailCarViewModel
+@{
     ViewBag.Title = "Detail Page";
 }
+<div>
+    <h1>@ViewBag.Title</h1>
+</div>
 <div>
     <p>Car Name : </p>
     <p>@Model.CarName</p>
@@ -9,4 +12,12 @@
 <div>
     <p>Car MiliAge : </p>
     <p>@Model.Miliage</p>
+</div>
+<div>
+    <p>Car ProducerCountry : </p>
+    <p>@nameof(Model.ProducerCountry)</p>
+</div>
+
+<div>
+    @Html.ActionLink("Home Page", "Index", "Home")
 </div>

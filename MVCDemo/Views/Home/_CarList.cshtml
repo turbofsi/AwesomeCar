@@ -1,0 +1,12 @@
+﻿@model AwesomeCar
+
+<h2>@Model.CarName</h2>
+<div>
+    @Model.BrandName
+</div>
+<div>
+    @Html.ActionLink("Detail", "Detail", new { Id = Model.CarId })
+</div>
+<div>
+    @Html.ActionLink("Edit", "Edit", new { Id = Model.CarId })
+</div>

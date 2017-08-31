@@ -1,22 +1,15 @@
-﻿@model MVCDemo.DataAccess.Models.HomeViewModel
+﻿@model HomeViewModel
 
 @{ 
     ViewBag.Title = "Home Page";
 }
 
 <h1>Garage</h1>
-<table>
-    @foreach (var car in Model.Cars)
-    {
-        <tr>
-            <td><p>@car.CarName</p></td>
-            <td><p>@car.BrandName</p></td>
-            <td><p>@car.MileAge</p></td>
-            <td><p>@Html.ActionLink("Detail", "Detail", "Home", new { Id = car.CarId })</p></td>
-            <td><p>@Html.ActionLink("Edit", "Edit", "Home", new { Id = car.CarId })</p></td>
-        </tr>
-    }
-</table>
+@foreach(var car in Model.Cars)
+{
+    @Html.Partial("_CarList", car)
+}
+
 @Html.ActionLink("Create New Car", "CreateCar", "Home")
 
 @section footer {
