@@ -9,9 +9,10 @@ using MVCDemo.DataAccess.Models;
 namespace MVCDemo.Migrations
 {
     [DbContext(typeof(AwesomeCarDbContext))]
-    partial class AwesomeCarDbContextModelSnapshot : ModelSnapshot
+    [Migration("20170909193956_SetupIdenitity")]
+    partial class SetupIdenitity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.2")

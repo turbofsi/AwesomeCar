@@ -5,9 +5,11 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using MVCDemo.DataAccess.Repositories;
 using MVCDemo.DataAccess.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace MVCDemo.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         private IAwesomeCarQueryHandler _awesomeCarQueryHandler;
@@ -18,6 +20,7 @@ namespace MVCDemo.Controllers
             _awesomeCarQueryHandler = awesomeCarQueryHandler;            
             _awesomeCarRepository = awesomeCarRepository;            
         }
+        [AllowAnonymous]
         public IActionResult Index()
         {
             var listOfCarModel = _awesomeCarQueryHandler.GetAwesomeCars();
@@ -62,6 +65,7 @@ namespace MVCDemo.Controllers
 
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Edit(int id, DetailCarViewModel vm)
         {
             var carModel = _awesomeCarRepository.GetCarById(id);

@@ -6,27 +6,26 @@
     <h1>Edit: @Model.CarName</h1>
 
     <div>
-        @using (Html.BeginForm())
-        {
+        <form method="post" asp-antiforgery="true">
             <div>
-                @Html.LabelFor(m => m.CarName)
-                @Html.TextBoxFor(m => m.CarName)
+                <label asp-for="CarName"></label>
+                <input asp-for="CarName" />
+                <span asp-validation-for="CarName"></span>
             </div>
             <div>
-                @Html.LabelFor(m => m.Miliage)
-                @Html.TextBoxFor(m => m.Miliage)
+                <label asp-for="Miliage"></label>
+                <input asp-for="Miliage" />
+                <span asp-validation-for="Miliage"></span>
             </div>
             <div>
-                @Html.LabelFor(m => m.ProducerCountry)
-                @Html.DropDownListFor(m => m.ProducerCountry, Html.GetEnumSelectList(typeof(ProducerCountry)))
+                <label asp-for="ProducerCountry"></label>
+                <select asp-for="ProducerCountry" asp-items="@Html.GetEnumSelectList(typeof(ProducerCountry))"></select>
+                <span asp-validation-for="ProducerCountry"></span>
             </div>
             <div>
-                <input type="submit" value="Save" />
+                <input type="submit" value="save" />
             </div>
-            <div>
-                <button id="deleteBtn">delete</button>
-            </div>
-        }
+        </form>
     </div>
 </div>
 

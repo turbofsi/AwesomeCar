@@ -10,6 +10,8 @@ using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
 using MVCDemo.DataAccess.Repositories;
 using MVCDemo.DataAccess.Entities;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using MVCDemo.DataAccess.Models;
 
 namespace MVCDemo
 {
@@ -34,6 +36,7 @@ namespace MVCDemo
             services.AddSingleton<IAwesomeCarQueryHandler, SqlAwesomeCarQUeryHandler>();
             services.AddSingleton<IAwesomeCarRepository, AwesomeCarRepository>();
             services.AddDbContext<AwesomeCarDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("yangtech")));
+            services.AddIdentity<User, IdentityRole>().AddEntityFrameworkStores<AwesomeCarDbContext>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -52,7 +55,9 @@ namespace MVCDemo
                 app.UseExceptionHandler("/Home/Error");
             }
 
-            app.UseStaticFiles();
+            app.UseFileServer();
+
+            app.UseIdentity();
 
             app.UseMvc(routes =>
             {
